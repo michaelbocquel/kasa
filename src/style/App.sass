@@ -1,0 +1,157 @@
+\:root
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
+  line-height: 1.5
+  background-color: #ffffff
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+.header
+  display: flex
+  justify-content: space-between
+  padding: 45px 100px 0
+
+.header__nav
+  display: flex
+  align-items: center
+  gap: 57px
+
+.header__nav__link
+  font-size: 24px
+  font-weight: 500
+  color: #000
+  text-decoration: none
+
+  &.active
+    text-decoration: underline
+
+.home__main__container
+  display: flex
+  flex-direction: column
+  gap: 50px
+  padding: 45px 100px
+
+.home__banner__container
+  position: relative
+
+.home__banner__image
+  object-fit: cover
+
+  /*object-position: ;
+  box-shadow: 0px 4px 4px 0px #00000040
+  filter: brightness(0.3)
+  width: 100%
+  height: 223px
+  border-radius: 25px
+
+.home__banner__text
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  z-index: 1
+  font-size: 48px
+  font-weight: 700
+  color: white
+
+.home__gallery__image__container
+  position: relative
+
+.home__gallery__container
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  gap: 50px
+  background-color: #f6f6f6
+  border-radius: 25px
+  padding: 50px 0
+
+.home__gallery__image
+  width: 340px
+  height: 340px
+  border-radius: 10px
+  object-fit: cover
+
+.home__gallery__title
+  position: absolute
+  top: 268px
+  left: 20px
+  font-size: 18px
+  font-weight: 700
+  width: 300px
+  color: white
+  backdrop-filter: blur(5px)
+  padding: 5px
+  border-radius: 5px
+
+.about__main__container
+  display: flex
+  flex-direction: column
+  gap: 50px
+  padding: 45px 100px
+
+.about__banner__image
+  object-fit: cover
+
+  /*object-position: ;
+  filter: brightness(0.7)
+  width: 100%
+  height: 223px
+  border-radius: 25px
+
+.about__values__summary
+  font-size: 24px
+  font-weight: 700
+  color: #ffffff
+  background-color: #ff6060
+
+.about__values__text
+  font-size: 18px
+  font-weight: 400
+  background-color: #F6F6F673
+
+.error__page__container
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+.error__display
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.error__display__title
+  font-size: 288px
+  font-weight: 700
+  color: #ff6060
+
+.error__display__text
+  font-size: 36px
+  font-weight: 500
+  color: #ff6060
+
+.error__display__home__link
+  font-size: 18px
+  font-weight: 500
+  color: #000000
+
+.footer
+  background-color: #000000
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  gap: 20px
+  padding: 50px 0 20px
+
+.footer__logo
+  width: 122px
+
+.footer__copyright
+  color: #ffffff
+  font-weight: 500
+  font-size: 24px
+  padding: 0 30px
