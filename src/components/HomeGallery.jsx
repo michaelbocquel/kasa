@@ -3,9 +3,9 @@ import data from "../data/data.json";
 export default function HomeGallery() {
 	return (
 		<div className="home__gallery__container">
-			{data.map((item, key) => (
+			{data.map((item) => (
 				<a
-					href={`/accommodation/${key + 1}`}
+					href={`/accommodation/${item.id}`}
 					className="home__gallery__image__container"
 					key={item.id}
 				>
