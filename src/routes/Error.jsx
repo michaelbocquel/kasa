@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import ErrorDisplay from "../components/ErrorDisplay";
+import Error from "../components/Error";
 import Footer from "../components/Footer";
 
 export default function ErrorPage() {
@@ -7,7 +7,7 @@ export default function ErrorPage() {
 		<div className="error__page__container">
 			<Header />
 			<div className="error__main__container">
-				<ErrorDisplay />
+				<Error />
 			</div>
 			<Footer />
 		</div>
