@@ -1,4 +1,4 @@
-export default function ErrorDisplay() {
+export default function Error() {
 	return (
 		<div className="error__display">
 			<p className="error__display__title">404</p>
