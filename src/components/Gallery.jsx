@@ -1,6 +1,6 @@
 import data from "../data/data.json";
 
-export default function HomeGallery() {
+export default function Gallery() {
 	return (
 		<div className="home__gallery__container">
 			{data.map((item) => (
