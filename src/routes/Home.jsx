@@ -7,7 +7,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<div className="home__main__container">
+			<div className="main__container">
 				<HomeBanner />
 				<Gallery />
 			</div>
