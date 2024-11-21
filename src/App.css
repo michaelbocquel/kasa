@@ -30,7 +30,7 @@
   text-decoration: underline;
 }
 
-.home__main__container {
+.main__container {
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -96,13 +96,6 @@
   border-radius: 5px;
 }
 
-.about__main__container {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  padding: 45px 100px;
-}
-
 .about__banner__image {
   object-fit: cover;
   /*object-position: ; */
@@ -114,12 +107,18 @@
 
 .accommodation__main__container {
   display: grid;
-  grid-template-areas: "image image" "title host-container" "location host-container" "tag-container rating" "description equipments";
-  margin: 0 100px;
+  grid-template-areas: "carousel carousel" "title host-container" "location host-container" "tag-container rating" "description equipments";
+  grid-template-columns: 1fr 1fr;
+  padding: 45px 100px;
+}
+.accommodation__main__container .accommodation__carousel {
+  grid-area: carousel;
 }
 .accommodation__main__container .accommodation__image {
   width: 100%;
-  grid-area: image;
+  height: 415px;
+  border-radius: 25px;
+  object-fit: cover;
 }
 .accommodation__main__container .accommodation__title {
   grid-area: title;
@@ -142,11 +141,10 @@
   color: #fff;
   background-color: #ff6060;
 }
-.accommodation__main__container .accommodation__description {
+.accommodation__main__container .accommodation__summary {
+  font-size: 18px;
+  font-weight: 700;
   grid-area: description;
-}
-.accommodation__main__container .accommodation__equipments {
-  grid-area: equipments;
 }
 .accommodation__main__container .accommodation__host__container {
   grid-area: host-container;
