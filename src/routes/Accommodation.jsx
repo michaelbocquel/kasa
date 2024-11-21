@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Slideshow from "../components/Slideshow";
 import Collapse from "../components/Collapse";
 import Footer from "../components/Footer";
 import Error from "../routes/Error";
@@ -13,16 +14,43 @@ export default function Accomodation() {
 	const [accommodation] = useState(
 		data.filter((logement) => logement.id === id)
 	);
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const items = [];
+	items.push(accommodation[0].pictures);
+	const renderItem = (items) => <img className="accommodation__image" src={items[0][currentIndex]} />;
+
+	const renderNavigation = () => (
+		<div className="nav">
+			<button
+				onClick={() => {
+					setCurrentIndex(
+						(prevIndex) => (prevIndex - 1 + items[0].length) % items[0].length
+					);
+				}}
+			>
+				Prev
+			</button>
+			<button
+				onClick={() =>
+					setCurrentIndex((prevIndex) => (prevIndex + 1) % items[0].length)
+				}
+			>
+				Next
+			</button>
+		</div>
+	);
+
 	return (
 		<>
 			{accommodation.length > 0 ? (
 				<>
 					<Header />
+					
 					<div className="accommodation__main__container">
-						<img
-							src={accommodation[0].cover}
-							className="accommodation__image"
-						></img>
+					<div className="accommodation__carousel">
+						{renderItem(items, currentIndex)}
+						{renderNavigation()}
+					</div>
 						<h1 className="accommodation__title">{accommodation[0].title}</h1>
 						<h1 className="accommodation__location">
 							{accommodation[0].location}
@@ -37,16 +65,16 @@ export default function Accomodation() {
 						<Collapse
 							summary="Description"
 							details={accommodation[0].description}
-							class="collapse-details accommodation__description"
+							classSummary="collapse__summary accommodation__summary"
+							classDetails="collapse__details"
 						/>
 						<Collapse
 							summary="Équipements"
 							details={accommodation[0].equipments.map((equipment, index) => (
-								<p key={index} className="accommodation__equipment">
-									{equipment}
-								</p>
+								<p key={index}>{equipment}</p>
 							))}
-							class="collapse-details accommodation__equipments"
+							classSummary="collapse__summary accommodation__summary"
+							classDetails="collapse__details"
 						/>
 						<div className="accommodation__host__container">
 							<h1 className="accommodation__host__name">
