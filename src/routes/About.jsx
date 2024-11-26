@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import AboutBanner from "../components/AboutBanner";
+import Banner from "../components/Banner";
 import Values from "../components/Values";
 import Footer from "../components/Footer";
 
@@ -8,7 +8,7 @@ export default function About() {
 		<>
 			<Header />
 			<div className="main__container">
-				<AboutBanner />
+				<Banner src="../src/assets/about-banner.jpg" />
 				<Values />
 			</div>
 			<Footer />
