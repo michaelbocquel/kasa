@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import Slideshow from "../components/Slideshow";
 import Collapse from "../components/Collapse";
 import Footer from "../components/Footer";
 import Error from "../routes/Error";
@@ -15,16 +14,15 @@ export default function Accomodation() {
 		data.filter((logement) => logement.id === id)
 	);
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const items = [];
-	items.push(accommodation[0].pictures);
-	const renderItem = (items) => <img className="accommodation__image" src={items[0][currentIndex]} />;
 
 	const renderNavigation = () => (
-		<div className="nav">
+		accommodation[0].pictures.length > 1 && <div className="nav">
 			<button
 				onClick={() => {
 					setCurrentIndex(
-						(prevIndex) => (prevIndex - 1 + items[0].length) % items[0].length
+						(prevIndex) =>
+							(prevIndex - 1 + accommodation[0].pictures.length) %
+							accommodation[0].pictures.length
 					);
 				}}
 			>
@@ -32,7 +30,9 @@ export default function Accomodation() {
 			</button>
 			<button
 				onClick={() =>
-					setCurrentIndex((prevIndex) => (prevIndex + 1) % items[0].length)
+					setCurrentIndex(
+						(prevIndex) => (prevIndex + 1) % accommodation[0].pictures.length
+					)
 				}
 			>
 				Next
@@ -45,12 +45,14 @@ export default function Accomodation() {
 			{accommodation.length > 0 ? (
 				<>
 					<Header />
-					
 					<div className="accommodation__main__container">
-					<div className="accommodation__carousel">
-						{renderItem(items, currentIndex)}
-						{renderNavigation()}
-					</div>
+						<div className="accommodation__carousel">
+							<img
+								className="accommodation__image"
+								src={accommodation[0].pictures[currentIndex]}
+							/>
+							{renderNavigation()}
+						</div>
 						<h1 className="accommodation__title">{accommodation[0].title}</h1>
 						<h1 className="accommodation__location">
 							{accommodation[0].location}
