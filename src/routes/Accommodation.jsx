@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Collapse from "../components/Collapse";
+import Rating from "../components/Rating";
 import Footer from "../components/Footer";
 import Error from "../routes/Error";
 
@@ -16,7 +17,7 @@ export default function Accomodation() {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const renderNavigation = () => (
-		accommodation[0].pictures.length > 1 && <div className="nav">
+		accommodation[0].pictures.length > 1 && <>
 			<button
 				onClick={() => {
 					setCurrentIndex(
@@ -26,7 +27,7 @@ export default function Accomodation() {
 					);
 				}}
 			>
-				Prev
+				<img src="../src/assets/arrow-prev.svg" alt="" className="accommodation__carousel__arrow__prev" />
 			</button>
 			<button
 				onClick={() =>
@@ -35,9 +36,9 @@ export default function Accomodation() {
 					)
 				}
 			>
-				Next
+				<img src="../src/assets/arrow-next.svg" alt="" className="accommodation__carousel__arrow__next" />
 			</button>
-		</div>
+		</>
 	);
 
 	return (
@@ -47,11 +48,14 @@ export default function Accomodation() {
 					<Header />
 					<div className="accommodation__main__container">
 						<div className="accommodation__carousel">
-							<img
-								className="accommodation__image"
-								src={accommodation[0].pictures[currentIndex]}
-							/>
-							{renderNavigation()}
+							<div className="accommodation__carousel__image__container">
+								<img
+									className="accommodation__image"
+									src={accommodation[0].pictures[currentIndex]}
+								></img>
+								{renderNavigation()}
+								<p className="accommodation__carousel__numbering">{currentIndex + 1} / {accommodation[0].pictures.length}</p>
+							</div>
 						</div>
 						<h1 className="accommodation__title">{accommodation[0].title}</h1>
 						<h1 className="accommodation__location">
@@ -64,20 +68,7 @@ export default function Accomodation() {
 								</p>
 							))}
 						</div>
-						<Collapse
-							summary="Description"
-							details={accommodation[0].description}
-							classSummary="collapse__summary accommodation__summary"
-							classDetails="collapse__details"
-						/>
-						<Collapse
-							summary="Équipements"
-							details={accommodation[0].equipments.map((equipment, index) => (
-								<p key={index}>{equipment}</p>
-							))}
-							classSummary="collapse__summary accommodation__summary"
-							classDetails="collapse__details"
-						/>
+						
 						<div className="accommodation__host__container">
 							<h1 className="accommodation__host__name">
 								{accommodation[0].host.name}
@@ -87,7 +78,23 @@ export default function Accomodation() {
 								className="accommodation__host__picture"
 							></img>
 						</div>
-						<h1 className="accommodation__rating">{accommodation[0].rating}</h1>
+						<Rating count={accommodation[0].rating} />
+					</div>
+					<div className="accommodation__collapse__container">
+						<Collapse
+								summary="Description"
+								details={accommodation[0].description}
+								classSummary="collapse__summary accommodation__summary"
+								classDetails="collapse__details accommodation__details"
+							/>
+							<Collapse
+								summary="Équipements"
+								details={accommodation[0].equipments.map((equipment, index) => (
+									<li key={index} className="accommodation__equipment__item">{equipment}</li>
+								))}
+								classSummary="collapse__summary accommodation__summary"
+								classDetails="collapse__details accommodation__details"
+							/>
 					</div>
 					<Footer />
 				</>
