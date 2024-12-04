@@ -127,7 +127,7 @@
   display: inline;
   position: absolute;
   right: 0.5em;
-  content: url("./assets/chevron-bas.png");
+  content: url("/assets/chevron-bas.png");
   transition: 0.4s;
 }
 
