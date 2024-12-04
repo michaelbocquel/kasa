@@ -4,9 +4,9 @@ export default function Header() {
 	return (
 		<header className="header">
 			<img
-			srcSet="../src/assets/header-logo-small.svg 146w, ../src/assets/header-logo.svg 211w"
+			srcSet="/assets/header-logo-small.svg 146w, /assets/header-logo.svg 211w"
 			sizes="(max-width: 600px) 146px, 211px"
-				src="../src/assets/header-logo.svg"
+				src="/assets/header-logo.svg"
 				alt="Red Kasa logo on white background"
 				className="header__logo"
 			/>

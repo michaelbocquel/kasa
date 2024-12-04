@@ -8,7 +8,7 @@ export default function About() {
 		<>
 			<Header />
 			<div className="main__container">
-				<Banner src="../src/assets/about-banner.jpg" />
+				<Banner src="/assets/about-banner.jpg" />
 				<Values />
 			</div>
 			<Footer />

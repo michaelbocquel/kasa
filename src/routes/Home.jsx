@@ -9,7 +9,7 @@ export default function Home() {
 			<Header />
 			<div className="main__container">
 				<Banner
-					src="../src/assets/home-banner.jpg"
+					src="/assets/home-banner.jpg"
 					isText
 					text="Chez vous, partout et ailleurs"
 				/>

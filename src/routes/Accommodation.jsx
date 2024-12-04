@@ -27,7 +27,7 @@ export default function Accomodation() {
 					);
 				}}
 			>
-				<img src="../src/assets/arrow-prev.svg" alt="" className="accommodation__carousel__arrow__prev" />
+				<img src="/assets/arrow-prev.svg" alt="" className="accommodation__carousel__arrow__prev" />
 			</button>
 			<button
 				onClick={() =>
@@ -36,7 +36,7 @@ export default function Accomodation() {
 					)
 				}
 			>
-				<img src="../src/assets/arrow-next.svg" alt="" className="accommodation__carousel__arrow__next" />
+				<img src="/assets/arrow-next.svg" alt="" className="accommodation__carousel__arrow__next" />
 			</button>
 		</>
 	);

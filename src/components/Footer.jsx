@@ -2,7 +2,7 @@ export default function Footer() {
 	return (
 		<footer className="footer">
 			<img
-				src="../src/assets/footer-logo.svg"
+				src="/assets/footer-logo.svg"
 				alt="White Kasa website logo on black background"
 				className="footer__logo"
 			/>
