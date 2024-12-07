@@ -162,6 +162,9 @@
   border-radius: 25px;
   object-fit: cover;
 }
+.accommodation__main__container .accommodation__carousel .accommodation__carousel__image__container .accommodation__carousel__button {
+  border: 0;
+}
 .accommodation__main__container .accommodation__carousel .accommodation__carousel__image__container .accommodation__carousel__arrow__prev {
   position: absolute;
   top: 50%;

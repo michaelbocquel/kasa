@@ -16,30 +16,41 @@ export default function Accomodation() {
 	);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-	const renderNavigation = () => (
-		accommodation[0].pictures.length > 1 && <>
-			<button
-				onClick={() => {
-					setCurrentIndex(
-						(prevIndex) =>
-							(prevIndex - 1 + accommodation[0].pictures.length) %
-							accommodation[0].pictures.length
-					);
-				}}
-			>
-				<img src="/assets/arrow-prev.svg" alt="" className="accommodation__carousel__arrow__prev" />
-			</button>
-			<button
-				onClick={() =>
-					setCurrentIndex(
-						(prevIndex) => (prevIndex + 1) % accommodation[0].pictures.length
-					)
-				}
-			>
-				<img src="/assets/arrow-next.svg" alt="" className="accommodation__carousel__arrow__next" />
-			</button>
-		</>
-	);
+	const renderNavigation = () =>
+		accommodation[0].pictures.length > 1 && (
+			<>
+				<button
+					className="accommodation__carousel__button"
+					onClick={() => {
+						setCurrentIndex(
+							(prevIndex) =>
+								(prevIndex - 1 + accommodation[0].pictures.length) %
+								accommodation[0].pictures.length
+						);
+					}}
+				>
+					<img
+						src="/assets/arrow-prev.svg"
+						alt=""
+						className="accommodation__carousel__arrow__prev"
+					/>
+				</button>
+				<button
+					className="accommodation__carousel__button"
+					onClick={() =>
+						setCurrentIndex(
+							(prevIndex) => (prevIndex + 1) % accommodation[0].pictures.length
+						)
+					}
+				>
+					<img
+						src="/assets/arrow-next.svg"
+						alt=""
+						className="accommodation__carousel__arrow__next"
+					/>
+				</button>
+			</>
+		);
 
 	return (
 		<>
@@ -54,7 +65,9 @@ export default function Accomodation() {
 									src={accommodation[0].pictures[currentIndex]}
 								></img>
 								{renderNavigation()}
-								<p className="accommodation__carousel__numbering">{currentIndex + 1} / {accommodation[0].pictures.length}</p>
+								<p className="accommodation__carousel__numbering">
+									{currentIndex + 1} / {accommodation[0].pictures.length}
+								</p>
 							</div>
 						</div>
 						<h1 className="accommodation__title">{accommodation[0].title}</h1>
@@ -68,7 +81,7 @@ export default function Accomodation() {
 								</p>
 							))}
 						</div>
-						
+
 						<div className="accommodation__host__container">
 							<h1 className="accommodation__host__name">
 								{accommodation[0].host.name}
@@ -82,19 +95,21 @@ export default function Accomodation() {
 					</div>
 					<div className="accommodation__collapse__container">
 						<Collapse
-								summary="Description"
-								details={accommodation[0].description}
-								classSummary="collapse__summary accommodation__summary"
-								classDetails="collapse__details accommodation__details"
-							/>
-							<Collapse
-								summary="Équipements"
-								details={accommodation[0].equipments.map((equipment, index) => (
-									<li key={index} className="accommodation__equipment__item">{equipment}</li>
-								))}
-								classSummary="collapse__summary accommodation__summary"
-								classDetails="collapse__details accommodation__details"
-							/>
+							summary="Description"
+							details={accommodation[0].description}
+							classSummary="collapse__summary accommodation__summary"
+							classDetails="collapse__details accommodation__details"
+						/>
+						<Collapse
+							summary="Équipements"
+							details={accommodation[0].equipments.map((equipment, index) => (
+								<li key={index} className="accommodation__equipment__item">
+									{equipment}
+								</li>
+							))}
+							classSummary="collapse__summary accommodation__summary"
+							classDetails="collapse__details accommodation__details"
+						/>
 					</div>
 					<Footer />
 				</>
